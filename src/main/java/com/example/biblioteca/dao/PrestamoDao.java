@@ -18,7 +18,7 @@ public class PrestamoDao {
         this.emf = emf;
     }
 
-    public Integer insertar(int usuarioId, int libroId) {
+    public Integer insertar(int usuarioId, int libroId) throws IllegalStateException, IllegalArgumentException {
         try (EntityManager em = emf.createEntityManager()) {
             EntityTransaction tx = em.getTransaction();
             try {

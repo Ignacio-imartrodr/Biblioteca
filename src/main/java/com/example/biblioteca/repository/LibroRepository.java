@@ -15,6 +15,6 @@ public interface LibroRepository extends JpaRepository<Libro, Integer> {
 
 	List<Libro> findByGeneroIdOrderByTitulo(Integer generoId);
 
-	@Query("SELECT l FROM Libro l WHERE LOWER(l.titulo) LIKE LOWER(CONCAT('%', :texto, '%')) ORDER BY l.titulo")
+	@Query("SELECT l FROM Libro l WHERE l.titulo LIKE CONCAT('%', UPPER(:texto), '%') ORDER BY l.titulo")
 	List<Libro> findByTituloContiene(@Param("texto") String texto);
 }

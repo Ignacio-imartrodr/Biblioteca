@@ -20,6 +20,10 @@ import com.example.biblioteca.repository.PrestamoRepository;
 import com.example.biblioteca.repository.UsuarioRepository;
 import com.example.biblioteca.service.PrestamoService;
 
+/**
+ * Aplicación de consola con las operaciones CRUD básicas sobre los modelos
+ * usando Spring Data JPA Repository.
+ */
 @Component
 @ConditionalOnProperty(prefix = "biblioteca.console", name = "enabled", havingValue = "true", matchIfMissing = true)
 public class BibliotecaConsole implements CommandLineRunner {
@@ -29,7 +33,7 @@ public class BibliotecaConsole implements CommandLineRunner {
 	private final PrestamoRepository prestamoRepository;
 	private final UsuarioRepository usuarioRepository;
 	private final PrestamoService prestamoService;
-	private final Scanner scanner = new Scanner(System.in);
+	private final Scanner sc = new Scanner(System.in);
 
 	public BibliotecaConsole(GeneroRepository generoRepository, LibroRepository libroRepository,
 			PrestamoRepository prestamoRepository, UsuarioRepository usuarioRepository,
@@ -43,10 +47,12 @@ public class BibliotecaConsole implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) {
+		// Spring Boot ya configura automáticamente el EntityManagerFactory y las transacciones,
+        // por lo que puedes usar directamente los repository.
 		int opcion;
 		do {
 			System.out.println("""
-
+				
 					===== GESTIÓN DE BIBLIOTECA =====
 					1. Gestionar libros
 					2. Gestionar géneros
@@ -312,20 +318,20 @@ public class BibliotecaConsole implements CommandLineRunner {
 
 	private String leerTexto(String mensaje) {
 		System.out.print(mensaje);
-		if (!scanner.hasNextLine()) {
+		if (!sc.hasNextLine()) {
 			throw new IllegalStateException("Se terminó la entrada de datos.");
 		}
-		return scanner.nextLine().trim();
+		return sc.nextLine().trim();
 	}
 
 	private int leerEntero(String mensaje) {
 		while (true) {
 			System.out.print(mensaje);
-			if (!scanner.hasNextLine()) {
+			if (!sc.hasNextLine()) {
 				return 0;
 			}
 			try {
-				return Integer.parseInt(scanner.nextLine().trim());
+				return Integer.parseInt(sc.nextLine().trim());
 			} catch (NumberFormatException e) {
 				System.out.println("Introduce un número entero.");
 			}

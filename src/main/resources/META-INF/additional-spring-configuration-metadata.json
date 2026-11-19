@@ -1,0 +1,10 @@
+{
+  "properties": [
+    {
+      "name": "biblioteca.console.enabled",
+      "type": "java.lang.Boolean",
+      "description": "Activa o desactiva el menú de consola de Biblioteca.",
+      "defaultValue": true
+    }
+  ]
+}
