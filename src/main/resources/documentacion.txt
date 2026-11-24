@@ -31,3 +31,4 @@
     - Crear tests para la aplicaciónc de consola (Con Copilot, que añadió una propiedad que permite desactivar el inicio de la app para usar los test, 
             prompt: "Crea tests para la aplicación de consola")
     
+    - Borrado de DAOs y Main para dejar solo el modelo Repository 
