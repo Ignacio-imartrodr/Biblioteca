@@ -1,0 +1,6 @@
+(pre git) 17/11/2026
+    -crear proyecto Maven con Spring Boot
+    -crear holaMundo de prueba
+    -añadir esquema de la base de datos (orientativo, no se usa)
+    -crear modelo genero
+    -crear dao genero
