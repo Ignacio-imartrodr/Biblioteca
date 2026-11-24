@@ -4,3 +4,8 @@
     -añadir esquema de la base de datos (orientativo, no se usa)
     -crear modelo genero
     -crear dao genero
+19/11/2026
+    -crear más modelos y DAOs (Con ayuda de Copilot para anotación, prompt: "Evalua y corrige las anotaciones de jakarta persistence de los modelos y DAOs")
+    -borrar holaMundo de prueba
+    -añadir util (no se usa pero podría usarse después)
+    -crear main con las operaciones CRUD básicas (Con ayuda de Copilot, prompt: "Crea un main con las operaciones CRUD básicas con los modelos y los DAOs usando EntityManager")
