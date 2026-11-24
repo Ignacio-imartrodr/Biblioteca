@@ -1,11 +1,33 @@
 (pre git) 17/11/2026
-    -crear proyecto Maven con Spring Boot
-    -crear holaMundo de prueba
-    -añadir esquema de la base de datos (orientativo, no se usa)
-    -crear modelo genero
-    -crear dao genero
+    - Crear proyecto Maven con Spring Boot
+
+    - Crear holaMundo de prueba
+
+    - Añadir esquema de la base de datos (orientativo, no se usa)
+
+    - Crear modelo género
+
+    - Crear dao género
+
 19/11/2026
-    -crear más modelos y DAOs (Con ayuda de Copilot para anotación, prompt: "Evalua y corrige las anotaciones de jakarta persistence de los modelos y DAOs")
-    -borrar holaMundo de prueba
-    -añadir util (no se usa pero podría usarse después)
-    -crear main con las operaciones CRUD básicas (Con ayuda de Copilot, prompt: "Crea un main con las operaciones CRUD básicas con los modelos y los DAOs usando EntityManager")
+    - Crear más modelos y DAOs (Con ayuda de Copilot para anotación, 
+            prompt: "Evalua y corrige las anotaciones de jakarta persistence de los modelos y DAOs")
+
+    - Borrar holaMundo de prueba
+
+    - Añadir util (no se usa pero podría usarse después)
+
+    - Crear main con las operaciones CRUD básicas (Con ayuda de Copilot, 
+            prompt: "Crea un main con las operaciones CRUD básicas  con los modelos y los DAOs usando EntityManager")
+
+23/11/2026
+    - Crear formato repository y service (Con ayuda de Copilot para las anotaciones y su sugerencia de separar Prestamos en service y repository, 
+            prompt: "Evalua y corrige las anotaciones de jpa repository de las clases repository")
+
+    - Crear Aplicación CRUD usando los repository (Con ayuda de Copilot que sugurió extraer la aplicación de consola de Aplicacion de boot, 
+            prompt: "Revisa BibliotecaApplication y propón mejoras o cambios teniendo en cuenta que es una aplicación de consola 
+                    con los CRUD básicos de los modelos usando los repository")
+
+    - Crear tests para la aplicaciónc de consola (Con Copilot, que añadió una propiedad que permite desactivar el inicio de la app para usar los test, 
+            prompt: "Crea tests para la aplicación de consola")
+    

@@ -1,0 +1,10 @@
+{
+  "properties": [
+    {
+      "name": "biblioteca.test-mode",
+      "type": "java.lang.Boolean",
+      "description": "Activa o desactiva el modo test de Biblioteca, es decir, desactiva la App de consola",
+      "defaultValue": false
+    }
+  ]
+}
