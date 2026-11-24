@@ -2,6 +2,8 @@ package com.example.biblioteca.model;
 
 import java.time.LocalDate;
 
+import com.example.biblioteca.utiles.Util;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -13,8 +15,7 @@ import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
 
 @Entity
-@Table(name = "libros", uniqueConstraints = @UniqueConstraint(
-        columnNames = {"titulo", "autor", "fecha_publicacion"}))
+@Table(name = "libros", uniqueConstraints = @UniqueConstraint(columnNames = {"titulo", "autor", "fecha_publicacion"}))
 public class Libro {
     public static final int N_COPIAS_DEFAULT = 1;
 
@@ -178,9 +179,9 @@ public class Libro {
 
     @Override
     public String toString() {
-        return "Libro [id=" + id + ", titulo=" + titulo + ", autor=" + autor
-                + ", fechaPub=" + fechaPub + ", valoracion=" + valoracion
-                + ", genero=" + genero + ", copiasTotales=" + copiasTotales
+        return "Libro [id=" + id + ", titulo=" + Util.normalizarNombre(titulo) + ", autor=" + Util.normalizarNombre(autor)
+                + ", fechaPub=" + fechaPub + ", valoracion=" + valoracion == null ? "Sin valoración" : valoracion
+                + ", genero=" + genero == null ? "Sin género" : genero + ", copiasTotales=" + copiasTotales
                 + ", copiasDisponibles=" + copiasDisponibles + "]";
     }
 }

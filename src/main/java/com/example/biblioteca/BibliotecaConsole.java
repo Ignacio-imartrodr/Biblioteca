@@ -85,18 +85,21 @@ public class BibliotecaConsole implements CommandLineRunner {
 					--- LIBROS ---
 					1. Listar
 					2. Buscar por id
-					3. Añadir
-					4. Modificar
-					5. Borrar
+					3. Buscar por Autor
+					4. Añadir
+					5. Modificar
+					6. Borrar
 					0. Volver""");
 			opcion = leerEntero("Opción: ");
 			switch (opcion) {
 				case 1 -> mostrar(libroRepository.findAllOrdenados());
 				case 2 -> mostrarUno(libroRepository.findById(leerEntero("Id del libro: ")),
 						"No existe ningún libro con ese id.");
-				case 3 -> crearLibro();
-				case 4 -> modificarLibro();
-				case 5 -> borrarLibro();
+				case 3 -> mostrar(libroRepository.findByAutorContiene(leerTexto("Autor del libro: ")),
+						"No existe ningún libro con ese Autor.");
+				case 4 -> crearLibro();
+				case 5 -> modificarLibro();
+				case 6 -> borrarLibro();
 				case 0 -> { }
 				default -> System.out.println("Opción no válida.");
 			}
@@ -300,12 +303,20 @@ public class BibliotecaConsole implements CommandLineRunner {
 				.orElseThrow(() -> new IllegalArgumentException("No existe el género indicado."));
 	}
 
-	private static <T> void mostrar(List<T> elementos) {
-		if (elementos.isEmpty()) {
-			System.out.println("No hay elementos.");
+	private static <T> void mostrar(List<T> elementos, String msjListaVacia) {
+		if (elementos == null || elementos.isEmpty()) {
+			if (msjListaVacia != null && !msjListaVacia.isBlank()) {
+				System.out.println(msjListaVacia);
+			} else {
+				System.out.println("No hay elementos.");
+			}
 		} else {
 			elementos.forEach(System.out::println);
 		}
+	}
+
+	private static <T> void mostrar(List<T> elementos) {
+		mostrar(elementos, null);
 	}
 
 	private static <T> void mostrarUno(Optional<T> elemento, String mensajeSiNoExiste) {

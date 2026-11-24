@@ -1,5 +1,7 @@
 package com.example.biblioteca.model;
 
+import com.example.biblioteca.utiles.Util;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -61,6 +63,6 @@ public class Usuario {
 
     @Override
     public String toString() {
-        return "Usuario [id=" + id + ", nombre=" + nombre + ", correo=" + correo + "]";
+        return "Usuario [id=" + id + ", nombre=" + Util.normalizarNombre(nombre) + ", correo=" + correo + "]";
     }
 }
